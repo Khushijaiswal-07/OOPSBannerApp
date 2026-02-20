@@ -1,63 +1,39 @@
+/**
+ * OOPSBannerApp - UC3
+ * Prints OOPS banner using String.join() with proper alignment
+ * @author Khushi
+ * @version 3.0
+ */
 public class STEPBannerApp {
     public static void main(String[] args) {
-
-        // Each letter is 9 characters wide
-        // 7 lines high
-
-        // Line 1
+        // Each row of the banner
         System.out.println(
-                "  *****  " +  // O
-                "  *****  " +  // O
-                "  ****** " +  // P
-                "  *****  "    // S
+            String.join("",
+                "  *****  ", "  *****  ", " *****   ", "  *****  ")
         );
-
-        // Line 2
         System.out.println(
-                " *     * " +
-                " *     * " +
-                " *     * " +
-                " *     * "
+            String.join("",
+                " *     * ", " *     * ", " *    *  ", " *       ")
         );
-
-        // Line 3
         System.out.println(
-                " *     * " +
-                " *     * " +
-                " *     * " +
-                " *       "
+            String.join("",
+                " *     * ", " *     * ", " *    *  ", " *       ")
         );
-
-        // Line 4
         System.out.println(
-                " *     * " +
-                " *     * " +
-                "  ****** " +
-                "  *****  "
+            String.join("",
+                " *     * ", " *     * ", " *****   ", "  *****  ")
         );
-
-        // Line 5
         System.out.println(
-                " *     * " +
-                " *     * " +
-                " *       " +
-                "       * "
+            String.join("",
+                " *     * ", " *     * ", " *       ", "       * ")
         );
-
-        // Line 6
         System.out.println(
-                " *     * " +
-                " *     * " +
-                " *       " +
-                " *     * "
+            String.join("",
+                " *     * ", " *     * ", " *       ", "       * ")
         );
-
-        // Line 7
         System.out.println(
-                "  *****  " +
-                "  *****  " +
-                " *       " +
-                "  *****  "
+            String.join("",
+                "  *****  ", "  *****  ", " *       ", "  *****  ")
         );
     }
 }
