@@ -1,12 +1,12 @@
 /**
- * OOPSBannerApp - UC4
- * Prints OOPS banner using String array and loop
+ * OOPSBannerApp - UC5
+ * Prints OOPS banner using inline array initialization with String.join()
  * @author Khushi
- * @version 4.0
+ * @version 5.0
  */
 public class STEPBannerApp {
     public static void main(String[] args) {
-        // Store all banner lines in a String array
+        // Inline declaration + initialization of banner lines
         String[] bannerLines = {
             String.join("", "  *****  ", "  *****  ", " *****   ", "  *****  "),
             String.join("", " *     * ", " *     * ", " *    *  ", " *       "),
@@ -17,7 +17,7 @@ public class STEPBannerApp {
             String.join("", "  *****  ", "  *****  ", " *       ", "  *****  ")
         };
 
-        // Print each line using a loop
+        // Print each line using enhanced for loop
         for (String line : bannerLines) {
             System.out.println(line);
         }
