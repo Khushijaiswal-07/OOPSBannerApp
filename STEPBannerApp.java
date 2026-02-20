@@ -1,39 +1,25 @@
 /**
- * OOPSBannerApp - UC3
- * Prints OOPS banner using String.join() with proper alignment
+ * OOPSBannerApp - UC4
+ * Prints OOPS banner using String array and loop
  * @author Khushi
- * @version 3.0
+ * @version 4.0
  */
 public class STEPBannerApp {
     public static void main(String[] args) {
-        // Each row of the banner
-        System.out.println(
-            String.join("",
-                "  *****  ", "  *****  ", " *****   ", "  *****  ")
-        );
-        System.out.println(
-            String.join("",
-                " *     * ", " *     * ", " *    *  ", " *       ")
-        );
-        System.out.println(
-            String.join("",
-                " *     * ", " *     * ", " *    *  ", " *       ")
-        );
-        System.out.println(
-            String.join("",
-                " *     * ", " *     * ", " *****   ", "  *****  ")
-        );
-        System.out.println(
-            String.join("",
-                " *     * ", " *     * ", " *       ", "       * ")
-        );
-        System.out.println(
-            String.join("",
-                " *     * ", " *     * ", " *       ", "       * ")
-        );
-        System.out.println(
-            String.join("",
-                "  *****  ", "  *****  ", " *       ", "  *****  ")
-        );
+        // Store all banner lines in a String array
+        String[] bannerLines = {
+            String.join("", "  *****  ", "  *****  ", " *****   ", "  *****  "),
+            String.join("", " *     * ", " *     * ", " *    *  ", " *       "),
+            String.join("", " *     * ", " *     * ", " *    *  ", " *       "),
+            String.join("", " *     * ", " *     * ", " *****   ", "  *****  "),
+            String.join("", " *     * ", " *     * ", " *       ", "       * "),
+            String.join("", " *     * ", " *     * ", " *       ", "       * "),
+            String.join("", "  *****  ", "  *****  ", " *       ", "  *****  ")
+        };
+
+        // Print each line using a loop
+        for (String line : bannerLines) {
+            System.out.println(line);
+        }
     }
 }
