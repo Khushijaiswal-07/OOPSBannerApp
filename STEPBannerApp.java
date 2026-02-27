@@ -1,48 +1,22 @@
 /**
- * OOPSBannerApp - UC7
- * Refactored to use CharacterPattern class for storing character patterns
+ * OOPSBannerApp - UC8
+ * Uses HashMap to store character patterns and render banner
  * @author Khushi
- * @version 7.0
+ * @version 8.0
  */
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class STEPBannerApp {
 
-    /**
-     * Inner static class to encapsulate character and its banner pattern
-     */
-    public static class CharacterPattern {
-        private char character;
-        private String[] pattern;
+    // ---------- Utility Method ----------
+    // Create and return map of character patterns
+    public static Map<Character, String[]> buildCharacterMap() {
 
-        /**
-         * Constructor to initialize character and its pattern
-         * @param character The character being represented
-         * @param pattern The 7-line banner pattern for the character
-         */
-        public CharacterPattern(char character, String[] pattern) {
-            this.character = character;
-            this.pattern = pattern;
-        }
+        Map<Character, String[]> map = new HashMap<>();
 
-        /**
-         * Getter for character
-         * @return the character
-         */
-        public char getCharacter() {
-            return character;
-        }
-
-        /**
-         * Getter for pattern
-         * @return the banner pattern array
-         */
-        public String[] getPattern() {
-            return pattern;
-        }
-    }
-
-    // Utility methods to build patterns for O, P, S
-    public static String[] buildOPattern() {
-        return new String[] {
+        map.put('O', new String[]{
             "  *****  ",
             " *     * ",
             " *     * ",
@@ -50,11 +24,9 @@ public class STEPBannerApp {
             " *     * ",
             " *     * ",
             "  *****  "
-        };
-    }
+        });
 
-    public static String[] buildPPattern() {
-        return new String[] {
+        map.put('P', new String[]{
             " *****   ",
             " *    *  ",
             " *    *  ",
@@ -62,11 +34,9 @@ public class STEPBannerApp {
             " *       ",
             " *       ",
             " *       "
-        };
-    }
+        });
 
-    public static String[] buildSPattern() {
-        return new String[] {
+        map.put('S', new String[]{
             "  *****  ",
             " *       ",
             " *       ",
@@ -74,26 +44,35 @@ public class STEPBannerApp {
             "       * ",
             "       * ",
             "  *****  "
-        };
+        });
+
+        return map;
     }
 
-    public static void main(String[] args) {
-        // Create CharacterPattern objects
-        CharacterPattern o1 = new CharacterPattern('O', buildOPattern());
-        CharacterPattern o2 = new CharacterPattern('O', buildOPattern());
-        CharacterPattern p  = new CharacterPattern('P', buildPPattern());
-        CharacterPattern s  = new CharacterPattern('S', buildSPattern());
+    // ---------- Display Method ----------
+    // Render banner using map
+    public static void printBanner(String message,
+                                   Map<Character, String[]> charMap) {
 
-        // Array of CharacterPattern objects
-        CharacterPattern[] word = { o1, o2, p, s };
+        for (int row = 0; row < 7; row++) {
 
-        // Print banner line by line
-        for (int i = 0; i < 7; i++) {
             StringBuilder line = new StringBuilder();
-            for (CharacterPattern cp : word) {
-                line.append(cp.getPattern()[i]);
+
+            for (char ch : message.toCharArray()) {
+                String[] pattern = charMap.get(ch);
+                line.append(pattern[row]);
             }
+
             System.out.println(line.toString());
         }
+    }
+
+    // ---------- Main Method ----------
+    public static void main(String[] args) {
+
+        Map<Character, String[]> characterMap =
+                buildCharacterMap();
+
+        printBanner("OOPS", characterMap);
     }
 }
